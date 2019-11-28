@@ -13,7 +13,7 @@ L'utilisateur utilise un client tor pour passer par le réseaux tor grâce à un
 Les services vpn sur la machine distante sont déployer avec ansible, le container Kali aussi. Il est configurer et mis à jour automatiquement. 
 
 
-![](https://imgur.com/NGtj52C)
+![](https://i.imgur.com/NGtj52C.png)
 
 ## Implantation logique 
 ### 1 serveur
