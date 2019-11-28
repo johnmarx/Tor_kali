@@ -13,18 +13,22 @@ L'utilisateur utilise un client tor pour passer par le réseaux tor grâce à un
 Les services vpn sur la machine distante sont déployer avec ansible, le container Kali aussi. Il est configurer et mis à jour automatiquement. 
 
 
-![](https://i.imgur.com/y9mev4t.png)
+![](https://imgur.com/NGtj52C)
 
 ## Implantation logique 
 ### 1 serveur
 
 Sur le serveur distant on install le service tor. Puis dans /etc/tor/ on configure le service. Nous voulons une connection ssh par tor. Donc: 
-'hiddenService /var/lib/hidden_service 22 127.0.0.1:22 '
+
+
+hiddenServiceDir /var/lib/tor/hidden_service/ssh
+hiddenService /var/lib/tor/hidden_service/ssh 22 127.0.0.1:33022 
 Puis on crée un syslink et on démarre le service.
 On récupère ensuite l'adresse de notre relais ainsi que la clé privé. Enfin on desactive la connection ssh par mot de passe.
+cat /var/lib/tor/hidden_service/ssh/hostnam
 
 ### 2 client
 Pour le client, on install aussi le service tor, puis on configure les DNS sur le relais de notre serveur:
-'    ProxyCommand nc -X 5 -x localhost:9050 <serveurrelaisaddr>.onion 22 configure le service ssh pour utilisé le service tor.
+'    ProxyCommand nc -X 5 -x localhost:9050 <serveurrelaisaddr>.onion 33022 configure le service ssh pour utilisé le service tor.
   
 Participants: Yannick COURRIAN, Elie BEN AYOUN, John MARX. 
